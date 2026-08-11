@@ -213,7 +213,7 @@
     letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums;
   }
   .eq-op { font-family: var(--mono); font-size: 1.6rem; color: #4a5468; font-weight: 700; }
-  .eq-net .eq-value { color: #ff9c8a; }
+  .eq-net .eq-value { color: var(--green); }
   @media (max-width: 700px) {
     .equation { grid-template-columns: 1fr; gap: 8px; padding: 30px var(--pad); }
     .eq-op { font-size: 1.2rem; }
@@ -299,18 +299,18 @@
   <div class="kpis">
     <div class="kpi">
       <div class="kpi__label">총 자금</div>
-      <div class="kpi__value">1,581.6<span class="unit">만원</span></div>
-      <div class="kpi__note">현금 + 이미결제 + 퇴직금</div>
+      <div class="kpi__value">1,678.3<span class="unit">만원</span></div>
+      <div class="kpi__note">현금 + 이미결제 + 퇴직금 + 프로젝트 96.7</div>
     </div>
     <div class="kpi">
       <div class="kpi__label">총 지출</div>
       <div class="kpi__value">1,685.0<span class="unit">만원</span></div>
       <div class="kpi__note">프로젝트 + 필수 부대비용</div>
     </div>
-    <div class="kpi kpi--dark is-deficit">
+    <div class="kpi kpi--dark">
       <div class="kpi__label">수지</div>
-      <div class="kpi__value">−103.4<span class="unit">만원</span></div>
-      <div class="kpi__note">부족 · 여유 버퍼 없음</div>
+      <div class="kpi__value">−6.7<span class="unit">만원</span></div>
+      <div class="kpi__note">사실상 균형 · 여유 버퍼 없음</div>
     </div>
   </div>
 
@@ -344,7 +344,12 @@
             <td class="num">821.6</td>
             <td class="detail">세전 834.6 − 퇴직소득세 약 13</td>
           </tr>
-          <tr class="total"><td>총 자금</td><td class="num">1,581.6</td><td></td></tr>
+          <tr>
+            <td>개인 프로젝트 대금 (세후)</td>
+            <td class="num">96.7</td>
+            <td class="detail">100.0 − 원천징수 3.3% (33,000원)</td>
+          </tr>
+          <tr class="total"><td>총 자금</td><td class="num">1,678.3</td><td></td></tr>
         </tbody>
       </table>
     </div>
@@ -476,7 +481,7 @@
   <div class="equation">
     <div>
       <div class="eq-label">총 자금</div>
-      <div class="eq-value">1,581.6</div>
+      <div class="eq-value">1,678.3</div>
     </div>
     <div class="eq-op">−</div>
     <div>
@@ -486,18 +491,19 @@
     <div class="eq-op">=</div>
     <div class="eq-net">
       <div class="eq-label">수지</div>
-      <div class="eq-value">−103.4</div>
+      <div class="eq-value">−6.7</div>
     </div>
   </div>
 
   <div class="notes">
     <span class="lead">참고사항.</span>
-    <span class="no">①</span> <b>8월 급여는 발생하지 않음</b> → 자금 편입분(100)과 여유 버퍼(300) 모두 없음.
+    <span class="no">①</span> <b>8월 급여 없음</b> → 대신 <b>개인 프로젝트 대금 100만원</b> 수령, 3.3% 원천징수 후 96.7만원을 자금에 편입. 기존 8월 급여분 여유 버퍼(300)는 존재하지 않음.
     <span class="no">②</span> <b>9월·2월 국내 생활비는 예산에서 제외</b> → 서현이 직접 벌어서 충당 예정.
-    <span class="no">③</span> <b>수지 −103.4만원은 실제 부족분</b> — 흡수할 버퍼가 없어 지출 삭감 또는 추가 수입으로 메워야 함.
-    <span class="no">④</span> 퇴직소득세는 근속 2년 · 첫 퇴직 기준 추정치이며, 실제 회사 정산과 최대 5만원 내외 차이 가능.
-    <span class="no">⑤</span> 다합 생활비 절약형(월 60) 전환 시 +60만 확보 → 그래도 <b>−43.4만</b> 남음.
-    <span class="no">⑥</span> <b>필수 액션</b>: 퇴사 후 즉시 ①건강보험 임의계속가입 (☎1577-1000) ②국민연금 납부예외 (☎1355) 신청.
+    <span class="no">③</span> <b>수지 −6.7만원은 오차 흡수 수준</b>이나 흡수할 버퍼가 없으므로, 초과 지출은 즉시 다른 항목에서 조정 필요.
+    <span class="no">④</span> 프로젝트 대금은 2027년 5월 <b>종합소득세 신고 시 급여와 합산</b> → 세율 구간(15%+지방 1.5%) 기준 약 13만원 추가 납부 가능. 이 경우 실질 수지는 <b>−20만원 내외</b>.
+    <span class="no">⑤</span> 퇴직소득세는 근속 2년 · 첫 퇴직 기준 추정치이며, 실제 회사 정산과 최대 5만원 내외 차이 가능.
+    <span class="no">⑥</span> 다합 생활비 절약형(월 60) 전환 시 +60만 확보 → 종합소득세 추가 납부까지 감안해도 <b>흑자 전환</b>.
+    <span class="no">⑦</span> <b>필수 액션</b>: 퇴사 후 즉시 ①건강보험 임의계속가입 (☎1577-1000) ②국민연금 납부예외 (☎1355) 신청.
   </div>
 
   <!-- 04 -->
@@ -526,6 +532,14 @@
             <div class="task__desc">인사팀에 예상 세후 실수령 확인 (계산: 약 821.6만)</div>
           </div>
           <span class="when">HR</span>
+        </li>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">개인 프로젝트 대금 100만원 입금 확인</div>
+            <div class="task__desc">원천징수 방식 사전 확인 (사업소득 3.3% → 96.7만 / 기타소득 8.8% → 91.2만). 지급명세서·계약서 보관 → 종합소득세 신고 대비</div>
+          </div>
+          <span class="when">세후 96.7만</span>
         </li>
       </ul>
     </div>
@@ -691,6 +705,14 @@
             <div class="task__desc">다이빙 마스터·미용 자격증 활용 or 커리어 복귀</div>
           </div>
           <span class="when">이직 준비</span>
+        </li>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">종합소득세 신고 (2027-05)</div>
+            <div class="task__desc">2026년 급여(1~8월) + 프로젝트 대금 100만 합산 신고 · 약 13만원 추가 납부 예상</div>
+          </div>
+          <span class="when">2027-05</span>
         </li>
         <li>
           <span class="box"></span><span class="pri">P2</span>

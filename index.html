@@ -7,295 +7,344 @@
 <title>다합 프로젝트 최종 예산 · 2026-09 → 2027-02</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; }
+
   :root {
-    --bg: #f6f5f2;
-    --surface: #ffffff;
-    --surface-alt: #faf9f6;
-    --ink: #1a1a18;
-    --ink-mid: #5c5a54;
-    --ink-dim: #8a877f;
-    --line: #e2dfd8;
-    --line-strong: #cdc9c0;
-    --accent: #1c4f4a;
-    --accent-soft: #e8f0ee;
-    --warn: #b4331f;
-    --warn-soft: #fbeae6;
-    --paid: #6b6862;
-    --paid-soft: #edebe6;
-    --pos: #1f6b4a;
-    --radius: 10px;
-    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #16161a;
-      --surface: #1e1e23;
-      --surface-alt: #24242a;
-      --ink: #ecebe7;
-      --ink-mid: #a8a59d;
-      --ink-dim: #7d7a73;
-      --line: #32323a;
-      --line-strong: #45454f;
-      --accent: #6fc0b4;
-      --accent-soft: #1c2f2d;
-      --warn: #f0806a;
-      --warn-soft: #33201d;
-      --paid: #9b978f;
-      --paid-soft: #2a2a30;
-      --pos: #6cc79a;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #16161a;
-    --surface: #1e1e23;
-    --surface-alt: #24242a;
-    --ink: #ecebe7;
-    --ink-mid: #a8a59d;
-    --ink-dim: #7d7a73;
-    --line: #32323a;
-    --line-strong: #45454f;
-    --accent: #6fc0b4;
-    --accent-soft: #1c2f2d;
-    --warn: #f0806a;
-    --warn-soft: #33201d;
-    --paid: #9b978f;
-    --paid-soft: #2a2a30;
-    --pos: #6cc79a;
+    --navy:       #141b2a;
+    --navy-line:  #2a3346;
+    --green:      #4fbf8b;   /* on navy */
+    --green-ink:  #2c8f61;   /* on white */
+    --page:       #f1f1ef;
+    --sheet:      #ffffff;
+    --band:       #f2f3f1;
+    --ink:        #1a1d24;
+    --ink-mid:    #5b616b;
+    --ink-dim:    #8b9099;
+    --line:       #e4e4e1;
+    --line-mid:   #d5d5d1;
+    --cream:      #fdf6e4;
+    --cream-line: #ead9ab;
+    --amber:      #e5b547;
+    --amber-ink:  #8a6410;
+    --rose-bg:    #fbe9e7;
+    --rose:       #c0392b;
+    --gray-pill:  #eaebe8;
+    --gray-ink:   #6b7280;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", "JetBrains Mono",
+            "Roboto Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
+            "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+    --pad: 56px;
   }
 
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--bg);
+    background: var(--page);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
-                 "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+    font-family: var(--sans);
     font-size: 15px;
-    line-height: 1.65;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 940px; margin: 0 auto; padding: 32px 20px 72px; }
+  .sheet {
+    max-width: 1180px;
+    margin: 40px auto;
+    background: var(--sheet);
+    box-shadow: 0 1px 3px rgba(20,27,42,.10), 0 12px 32px rgba(20,27,42,.06);
+  }
+  @media (max-width: 820px) { :root { --pad: 24px; } .sheet { margin: 0; box-shadow: none; } }
 
-  /* ---------- masthead ---------- */
-  .masthead { border-top: 3px solid var(--ink); padding-top: 18px; margin-bottom: 34px; }
+  /* ============ masthead ============ */
+  .masthead {
+    background: var(--navy);
+    border-top: 3px solid var(--green);
+    padding: 46px var(--pad) 40px;
+    color: #fff;
+  }
   .kicker {
     font-family: var(--mono);
-    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--accent); font-weight: 600; margin-bottom: 10px;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 14px;
   }
   h1 {
-    font-size: clamp(1.7rem, 4.6vw, 2.5rem);
-    line-height: 1.2; letter-spacing: -.02em;
-    margin: 0 0 10px; font-weight: 700;
+    margin: 0 0 12px;
+    font-size: clamp(1.85rem, 5vw, 2.7rem);
+    font-weight: 800; letter-spacing: -.02em; line-height: 1.18;
+    word-break: keep-all;
   }
-  .standfirst { color: var(--ink-mid); font-size: 1rem; margin: 0; max-width: 60ch; }
-  .meta-line {
-    margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line);
-    font-family: var(--mono); font-size: 11.5px; color: var(--ink-dim);
-    display: flex; flex-wrap: wrap; gap: 6px 18px;
+  .standfirst {
+    margin: 0; font-size: 1rem; color: #b8bec9; word-break: keep-all;
   }
 
-  /* ---------- KPI row ---------- */
+  /* ============ KPI row ============ */
   .kpis {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 40px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--line);
   }
-  @media (max-width: 620px) { .kpis { grid-template-columns: 1fr; } }
-  .kpi {
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 18px 18px 16px;
-    border-top: 3px solid var(--line-strong);
+  .kpi { padding: 26px var(--pad) 24px; border-left: 1px solid var(--line); }
+  .kpi:first-child { border-left: 0; }
+  .kpi--dark {
+    background: var(--navy); border-left-color: var(--navy);
   }
-  .kpi--net { border-top-color: var(--accent); }
   .kpi__label {
-    font-size: 12px; letter-spacing: .06em; color: var(--ink-mid);
-    text-transform: uppercase; font-weight: 600; margin-bottom: 6px;
+    font-size: 12.5px; font-weight: 700; color: var(--ink-mid);
+    letter-spacing: .02em; margin-bottom: 8px;
   }
+  .kpi--dark .kpi__label { color: #9aa3b2; }
   .kpi__value {
-    font-size: clamp(1.5rem, 4vw, 1.95rem); font-weight: 700;
-    letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.15;
+    font-family: var(--mono);
+    font-size: clamp(1.9rem, 5.2vw, 2.65rem);
+    font-weight: 700; letter-spacing: -.03em; line-height: 1.05;
+    font-variant-numeric: tabular-nums;
   }
-  .kpi__value .unit { font-size: .62em; font-weight: 600; color: var(--ink-mid); margin-left: 2px; }
-  .kpi__note { font-size: 12.5px; color: var(--ink-dim); margin-top: 6px; }
+  .kpi__value .unit {
+    font-family: var(--sans);
+    font-size: .34em; font-weight: 700; letter-spacing: 0;
+    margin-left: 4px; color: var(--ink-mid); vertical-align: .28em;
+  }
+  .kpi--dark .kpi__value { color: #fff; }
+  .kpi--dark .kpi__value .unit { color: #9aa3b2; }
+  .kpi--dark.is-deficit .kpi__value { color: #ff9c8a; }
+  .kpi__note { font-size: 12.5px; color: var(--ink-dim); margin-top: 9px; word-break: keep-all; }
+  .kpi--dark .kpi__note { color: #8b95a5; }
+  @media (max-width: 760px) {
+    .kpis { grid-template-columns: 1fr; }
+    .kpi { border-left: 0; border-top: 1px solid var(--line); }
+    .kpi:first-child { border-top: 0; }
+  }
 
-  /* ---------- sections ---------- */
-  section { margin-bottom: 44px; }
-  .sec-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;
-              padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
-  .sec-num { font-family: var(--mono); font-size: 12px; font-weight: 700;
-             color: var(--accent); letter-spacing: .1em; }
-  .sec-head h2 { font-size: 1.28rem; margin: 0; font-weight: 700; letter-spacing: -.01em; }
+  /* ============ sections ============ */
+  section { padding: 44px var(--pad); border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: 0; }
+  .sec-kicker {
+    font-family: var(--mono);
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--green-ink); margin-bottom: 10px;
+  }
+  h2 {
+    margin: 0 0 26px;
+    font-size: clamp(1.3rem, 3.4vw, 1.75rem);
+    font-weight: 800; letter-spacing: -.02em;
+  }
 
-  /* ---------- tables ---------- */
-  .t-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch;
-              border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-  table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 460px; }
-  caption { text-align: left; font-weight: 700; font-size: .98rem; padding: 14px 16px 0;
-            color: var(--ink); }
+  /* ============ tables ============ */
+  .t-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; min-width: 520px; }
   thead th {
-    text-align: left; font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase;
-    color: var(--ink-mid); font-weight: 700; padding: 12px 16px;
-    border-bottom: 1px solid var(--line-strong); background: var(--surface-alt);
-    white-space: nowrap;
+    background: var(--band);
+    text-align: left; font-size: 12.5px; font-weight: 700; color: var(--ink-mid);
+    padding: 13px 18px; white-space: nowrap;
   }
-  tbody td { padding: 11px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  tbody tr:last-child td { border-bottom: 0; }
-  .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
-  .detail { color: var(--ink-mid); font-size: 13.5px; }
+  thead th.num { text-align: right; }
+  tbody td { padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .num {
+    text-align: right; white-space: nowrap;
+    font-family: var(--mono); font-weight: 700; font-variant-numeric: tabular-nums;
+  }
+  .detail { color: var(--ink-mid); font-size: 13.5px; word-break: keep-all; }
+  .paid-name { color: var(--green-ink); font-weight: 600; }
   tr.total td {
-    border-top: 2px solid var(--ink); border-bottom: 0;
-    font-weight: 700; background: var(--surface-alt); font-size: 15.5px;
+    background: var(--band);
+    border-top: 2px solid var(--navy); border-bottom: 0;
+    font-weight: 800; font-size: 1.05rem; padding-top: 16px; padding-bottom: 16px;
   }
   .tag {
-    display: inline-block; font-family: var(--mono); font-size: 9.5px; font-weight: 700;
-    letter-spacing: .08em; padding: 2px 6px; border-radius: 4px; vertical-align: 2px;
-    margin-left: 6px; background: var(--paid-soft); color: var(--paid);
+    display: inline-block; margin-left: 8px; vertical-align: 2px;
+    font-family: var(--mono); font-size: 9.5px; font-weight: 700; letter-spacing: .1em;
+    padding: 3px 7px; background: var(--gray-pill); color: var(--gray-ink);
   }
 
-  /* ---------- two-col ---------- */
-  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 700px) { .duo { grid-template-columns: 1fr; } }
-  .card {
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 16px 18px;
+  /* ============ duo grid (hairline-divided) ============ */
+  .duo {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line); margin-top: 30px;
   }
-  .card h3 { font-size: .95rem; margin: 0 0 12px; font-weight: 700; }
+  .duo:first-of-type { margin-top: 0; }
+  .cell { padding: 26px 30px 28px; border-left: 1px solid var(--line); }
+  .cell:first-child { border-left: 0; }
+  @media (max-width: 760px) {
+    .duo { grid-template-columns: 1fr; }
+    .cell { border-left: 0; border-top: 1px solid var(--line); padding: 22px 0 24px; }
+    .cell:first-child { border-top: 0; }
+  }
+  .cell h3 { margin: 0 0 16px; font-size: 1.02rem; font-weight: 800; letter-spacing: -.01em; }
+  .cell--cream { background: var(--cream); border-left-color: var(--cream-line); }
+  .cell--cream h3 { color: var(--ink); }
+
   dl.rows { margin: 0; }
   dl.rows > div {
-    display: flex; justify-content: space-between; gap: 14px;
-    padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 14px;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+    padding: 10px 0; border-bottom: 1px solid var(--line);
   }
-  dl.rows > div:last-of-type { border-bottom: 0; }
-  dl.rows dt { color: var(--ink-mid); margin: 0; }
-  dl.rows dd { margin: 0; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+  .cell--cream dl.rows > div { border-bottom-color: var(--cream-line); }
+  dl.rows dt { margin: 0; color: var(--ink-mid); font-size: 14px; word-break: keep-all; }
+  dl.rows dd {
+    margin: 0; white-space: nowrap;
+    font-family: var(--mono); font-weight: 700; font-variant-numeric: tabular-nums;
+  }
   dl.rows > div.sum {
-    border-top: 2px solid var(--ink); border-bottom: 0; margin-top: 4px; padding-top: 9px;
+    border-bottom: 0; border-top: 2px solid var(--navy);
+    margin-top: 6px; padding-top: 12px;
   }
-  dl.rows > div.sum dt { color: var(--ink); font-weight: 700; }
-
-  /* ---------- alert ---------- */
-  .alert {
-    background: var(--warn-soft); border: 1px solid var(--warn);
-    border-left-width: 4px; border-radius: var(--radius); padding: 16px 18px;
+  dl.rows > div.sum + div.sum { border-top: 0; margin-top: 0; padding-top: 2px; }
+  dl.rows > div.sum dt { color: var(--ink); font-weight: 800; font-size: 15px; }
+  .cell-foot {
+    margin: 10px 0 0; font-family: var(--mono);
+    font-size: 13px; font-weight: 700; color: var(--ink);
   }
-  .alert h3 { color: var(--warn); font-size: .95rem; margin: 0 0 4px; font-weight: 700; }
-  .alert .sub { font-size: 13px; color: var(--ink-mid); margin: 0 0 12px; }
-  .alert dl.rows > div { border-bottom-color: color-mix(in srgb, var(--warn) 22%, transparent); }
+  .dot { color: #e04a3a; }
 
-  /* ---------- equation ---------- */
+  /* ============ equation band ============ */
   .equation {
+    background: var(--navy); border-top: 3px solid var(--green);
+    padding: 40px var(--pad);
     display: grid; grid-template-columns: 1fr auto 1fr auto 1fr;
-    align-items: center; gap: 10px;
-    background: var(--accent-soft); border: 1px solid var(--accent);
-    border-radius: var(--radius); padding: 20px 18px; text-align: center;
+    align-items: center; gap: 18px; text-align: center;
   }
-  @media (max-width: 620px) {
-    .equation { grid-template-columns: 1fr; gap: 4px; }
-    .equation .op { padding: 2px 0; }
+  .eq-label {
+    font-size: 12.5px; font-weight: 700; color: #9aa3b2; margin-bottom: 8px;
   }
-  .equation .term__label { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase;
-                           color: var(--ink-mid); font-weight: 700; margin-bottom: 2px; }
-  .equation .term__val { font-size: 1.35rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-  .equation .op { font-size: 1.2rem; color: var(--accent); font-weight: 700; }
-  .equation .net .term__val { color: var(--accent); }
+  .eq-value {
+    font-family: var(--mono); font-weight: 700; color: #fff;
+    font-size: clamp(1.7rem, 5vw, 2.9rem);
+    letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums;
+  }
+  .eq-op { font-family: var(--mono); font-size: 1.6rem; color: #4a5468; font-weight: 700; }
+  .eq-net .eq-value { color: #ff9c8a; }
+  @media (max-width: 700px) {
+    .equation { grid-template-columns: 1fr; gap: 8px; padding: 30px var(--pad); }
+    .eq-op { font-size: 1.2rem; }
+  }
 
-  /* ---------- notes ---------- */
-  .notes { background: var(--surface-alt); border: 1px solid var(--line);
-           border-radius: var(--radius); padding: 16px 18px; margin-top: 14px; }
-  .notes h3 { font-size: .85rem; margin: 0 0 8px; color: var(--ink-mid);
-              text-transform: uppercase; letter-spacing: .07em; }
-  .notes ol { margin: 0; padding-left: 1.3em; }
-  .notes li { font-size: 13.5px; color: var(--ink-mid); margin-bottom: 6px; }
-  .notes li:last-child { margin-bottom: 0; }
-
-  /* ---------- checklist ---------- */
-  .phase { margin-bottom: 22px; }
-  .phase__head {
-    display: flex; align-items: baseline; justify-content: space-between;
-    gap: 12px; flex-wrap: wrap; margin-bottom: 10px;
-    padding-bottom: 7px; border-bottom: 1px solid var(--line-strong);
+  /* ============ notes ============ */
+  .notes {
+    background: var(--band); border-left: 4px solid var(--amber);
+    padding: 22px 26px; font-size: 13.5px; line-height: 1.85; color: var(--ink-mid);
+    word-break: keep-all;
   }
-  .phase__title { font-size: 1.02rem; font-weight: 700; margin: 0; }
-  .phase__when { font-family: var(--mono); font-size: 11.5px; color: var(--ink-dim); }
+  .notes b { color: var(--ink); font-weight: 700; }
+  .notes .no {
+    font-weight: 700; color: var(--amber-ink); margin: 0 2px 0 6px;
+  }
+  .notes .lead { font-weight: 800; color: var(--ink); margin-right: 2px; }
+
+  /* ============ checklist ============ */
+  .phase {
+    display: grid; grid-template-columns: 210px 1fr; gap: 24px;
+    padding: 26px 0; border-top: 1px solid var(--line);
+  }
+  .phase:first-of-type { border-top: 0; padding-top: 0; }
+  @media (max-width: 760px) { .phase { grid-template-columns: 1fr; gap: 12px; } }
+  .phase__title { margin: 0 0 6px; font-size: 1.02rem; font-weight: 800; letter-spacing: -.01em; }
+  .phase__when { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); letter-spacing: .02em; }
+
   ul.tasks { list-style: none; margin: 0; padding: 0; }
-  ul.tasks li {
-    display: grid; grid-template-columns: 34px 1fr auto; gap: 12px;
-    padding: 11px 0; border-bottom: 1px solid var(--line); align-items: start;
+  ul.tasks > li {
+    display: grid; grid-template-columns: 22px auto 1fr auto; gap: 12px;
+    align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line);
   }
-  ul.tasks li:last-child { border-bottom: 0; }
-  @media (max-width: 560px) {
-    ul.tasks li { grid-template-columns: 34px 1fr; }
-    ul.tasks li .when { grid-column: 2; }
+  ul.tasks > li:first-child { padding-top: 0; }
+  ul.tasks > li:last-child { border-bottom: 0; padding-bottom: 0; }
+  @media (max-width: 620px) {
+    ul.tasks > li { grid-template-columns: 22px auto 1fr; }
+    ul.tasks > li .when { grid-column: 2 / -1; text-align: left; margin-top: 4px; }
   }
+  .box {
+    width: 18px; height: 18px; margin-top: 3px;
+    border: 1.5px solid var(--line-mid); background: #fff;
+  }
+  li.is-p0 .box { border-color: #d9695c; }
   .pri {
-    font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .04em;
-    padding: 3px 0; border-radius: 4px; text-align: center; margin-top: 2px;
-    background: var(--paid-soft); color: var(--paid);
+    font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .06em;
+    padding: 3px 7px; margin-top: 3px;
+    background: var(--gray-pill); color: var(--gray-ink);
   }
-  .pri.p0 { background: var(--warn-soft); color: var(--warn); }
-  .pri.p1 { background: var(--accent-soft); color: var(--accent); }
-  .task__name { font-weight: 600; }
-  .task__desc { color: var(--ink-mid); font-size: 13.5px; margin-top: 2px; }
-  .when { font-family: var(--mono); font-size: 11px; color: var(--ink-dim);
-          text-align: right; white-space: nowrap; margin-top: 3px; }
+  .pri.p0 { background: var(--rose-bg); color: var(--rose); }
+  .pri.p1 { background: var(--amber); color: #4a3708; }
+  .task__name { font-weight: 700; letter-spacing: -.01em; }
+  .task__desc { color: var(--ink-mid); font-size: 13.5px; margin-top: 3px; word-break: keep-all; }
+  .when {
+    font-family: var(--mono); font-size: 12.5px; font-weight: 700;
+    color: var(--green-ink); text-align: right; white-space: nowrap; margin-top: 3px;
+  }
 
+  /* ============ footer ============ */
   footer {
-    margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
-    font-family: var(--mono); font-size: 11px; color: var(--ink-dim);
-    display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: space-between;
+    background: var(--navy); color: #7d879a;
+    padding: 20px var(--pad);
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: .04em;
+    display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: space-between;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .sheet { margin: 0; max-width: none; box-shadow: none; }
+    section, .phase { break-inside: avoid; }
+    .equation, .masthead, footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="sheet">
 
   <header class="masthead">
     <div class="kicker">Project Budget · 2026-09 → 2027-02</div>
     <h1>다합 프로젝트 최종 예산</h1>
     <p class="standfirst">퇴사 · 다합 다이빙 마스터 · 미용 자격증 · 유럽 · 12월 이집트</p>
-    <div class="meta-line">
-      <span>기간 6개월</span>
-      <span>통화 KRW (만원)</span>
-      <span>작성 2026-08-05</span>
-      <span>TS Policy Brief Style</span>
-    </div>
   </header>
 
   <div class="kpis">
     <div class="kpi">
       <div class="kpi__label">총 자금</div>
-      <div class="kpi__value">1,681.6<span class="unit">만원</span></div>
-      <div class="kpi__note">현금 + 이미결제 + 퇴직금 + 8월급여 100</div>
+      <div class="kpi__value">1,581.6<span class="unit">만원</span></div>
+      <div class="kpi__note">현금 + 이미결제 + 퇴직금</div>
     </div>
     <div class="kpi">
       <div class="kpi__label">총 지출</div>
       <div class="kpi__value">1,685.0<span class="unit">만원</span></div>
       <div class="kpi__note">프로젝트 + 필수 부대비용</div>
     </div>
-    <div class="kpi kpi--net">
+    <div class="kpi kpi--dark is-deficit">
       <div class="kpi__label">수지</div>
-      <div class="kpi__value">−3.4<span class="unit">만원</span></div>
-      <div class="kpi__note">사실상 균형 (오차 흡수 수준)</div>
+      <div class="kpi__value">−103.4<span class="unit">만원</span></div>
+      <div class="kpi__note">부족 · 여유 버퍼 없음</div>
     </div>
   </div>
 
   <!-- 01 -->
   <section>
-    <div class="sec-head">
-      <span class="sec-num">01</span>
-      <h2>총 자금 구성</h2>
-    </div>
+    <div class="sec-kicker">01 · Funding Sources</div>
+    <h2>총 자금 구성</h2>
     <div class="t-scroll">
       <table>
         <thead>
           <tr><th>항목</th><th class="num">금액 (만원)</th><th>비고</th></tr>
         </thead>
         <tbody>
-          <tr><td>남은 현금</td><td class="num">420.0</td><td class="detail">다이빙 장비 · 숙소 결제 후 잔고</td></tr>
-          <tr><td>다이빙 장비 (기결제)<span class="tag">PAID</span></td><td class="num">175.0</td><td class="detail">컴퓨터 + 스트랩 등</td></tr>
-          <tr><td>다합 숙소 (기결제)<span class="tag">PAID</span></td><td class="num">165.0</td><td class="detail">2개월 숙박비</td></tr>
-          <tr><td>퇴직금 (세후)</td><td class="num">821.6</td><td class="detail">세전 834.6 − 퇴직소득세 약 13</td></tr>
-          <tr><td>8월 급여 (부분 편입)</td><td class="num">100.0</td><td class="detail">9월 초 입금 예정 · 나머지 300은 여유 버퍼</td></tr>
-          <tr class="total"><td>총 자금</td><td class="num">1,681.6</td><td></td></tr>
+          <tr>
+            <td>남은 현금</td>
+            <td class="num">420.0</td>
+            <td class="detail">다이빙 장비 · 숙소 결제 후 잔고</td>
+          </tr>
+          <tr>
+            <td><span class="paid-name">다이빙 장비 (기결제)</span><span class="tag">PAID</span></td>
+            <td class="num">175.0</td>
+            <td class="detail">컴퓨터 + 스트랩 등</td>
+          </tr>
+          <tr>
+            <td><span class="paid-name">다합 숙소 (기결제)</span><span class="tag">PAID</span></td>
+            <td class="num">165.0</td>
+            <td class="detail">2개월 숙박비</td>
+          </tr>
+          <tr>
+            <td>퇴직금 (세후)</td>
+            <td class="num">821.6</td>
+            <td class="detail">세전 834.6 − 퇴직소득세 약 13</td>
+          </tr>
+          <tr class="total"><td>총 자금</td><td class="num">1,581.6</td><td></td></tr>
         </tbody>
       </table>
     </div>
@@ -303,12 +352,10 @@
 
   <!-- 02 -->
   <section>
-    <div class="sec-head">
-      <span class="sec-num">02</span>
-      <h2>퇴직금 산출 근거</h2>
-    </div>
+    <div class="sec-kicker">02 · Severance Calculation</div>
+    <h2>퇴직금 산출 근거</h2>
     <div class="duo">
-      <div class="card">
+      <div class="cell">
         <h3>기초 데이터</h3>
         <dl class="rows">
           <div><dt>입사일</dt><dd>2024-10-08</dd></div>
@@ -319,7 +366,7 @@
           <div><dt>상여금 / 연차수당</dt><dd>0</dd></div>
         </dl>
       </div>
-      <div class="card">
+      <div class="cell">
         <h3>계산 프로세스</h3>
         <dl class="rows">
           <div><dt>3개월 급여 총액</dt><dd>1,350만</dd></div>
@@ -335,20 +382,30 @@
 
   <!-- 03 -->
   <section>
-    <div class="sec-head">
-      <span class="sec-num">03</span>
-      <h2>지출 항목 (6개월)</h2>
-    </div>
+    <div class="sec-kicker">03 · Expenditure</div>
+    <h2>지출 항목 (6개월)</h2>
     <div class="t-scroll">
       <table>
         <thead>
           <tr><th>항목</th><th class="num">금액 (만원)</th><th>상세</th></tr>
         </thead>
         <tbody>
-          <tr><td>고정비<span class="tag">FIXED</span></td><td class="num">520.0</td><td class="detail">월 86.1만 × 6개월 (전세이자·저축·통신·보험)</td></tr>
-          <tr><td>다이빙 장비<span class="tag">PAID</span></td><td class="num">175.0</td><td class="detail">컴퓨터 + 스트랩</td></tr>
+          <tr>
+            <td>고정비<span class="tag">FIXED</span></td>
+            <td class="num">520.0</td>
+            <td class="detail">월 86.1만 × 6개월 (전세이자·저축·통신·보험)</td>
+          </tr>
+          <tr>
+            <td><span class="paid-name">다이빙 장비</span><span class="tag">PAID</span></td>
+            <td class="num">175.0</td>
+            <td class="detail">컴퓨터 + 스트랩</td>
+          </tr>
           <tr><td>교육비</td><td class="num">185.0</td><td class="detail">다이빙 마스터 + 미용 자격증</td></tr>
-          <tr><td>다합 숙소<span class="tag">PAID</span></td><td class="num">165.0</td><td class="detail">2개월 숙박</td></tr>
+          <tr>
+            <td><span class="paid-name">다합 숙소</span><span class="tag">PAID</span></td>
+            <td class="num">165.0</td>
+            <td class="detail">2개월 숙박</td>
+          </tr>
           <tr><td>다합 생활비</td><td class="num">180.0</td><td class="detail">월 90만 × 2개월 (균형형)</td></tr>
           <tr><td>유럽 여행</td><td class="num">90.0</td><td class="detail"></td></tr>
           <tr><td>12월 이집트 여행</td><td class="num">150.0</td><td class="detail"></td></tr>
@@ -361,8 +418,8 @@
       </table>
     </div>
 
-    <div class="duo" style="margin-top:14px">
-      <div class="card">
+    <div class="duo">
+      <div class="cell">
         <h3>월 고정비 구성 (× 6개월)</h3>
         <dl class="rows">
           <div><dt>전세이자 + 관리비</dt><dd>40.0</dd></div>
@@ -373,7 +430,7 @@
           <div class="sum"><dt>6개월 총액</dt><dd>520.0만</dd></div>
         </dl>
       </div>
-      <div class="card">
+      <div class="cell">
         <h3>다합 월 생활비 (균형형)</h3>
         <dl class="rows">
           <div><dt>식비 (하루 ~1.8만)</dt><dd>55.0</dd></div>
@@ -387,21 +444,20 @@
       </div>
     </div>
 
-    <div class="duo" style="margin-top:14px">
-      <div class="alert">
-        <h3>🔴 건강보험 임의계속가입</h3>
-        <p class="sub">필수 액션 — 미신청 시 지역가입자 자동 전환</p>
+    <div class="duo">
+      <div class="cell cell--cream">
+        <h3><span class="dot">●</span> 건강보험 임의계속가입 (필수 액션)</h3>
         <dl class="rows">
           <div><dt>자격 조건</dt><dd>18개월 중 1년↑</dd></div>
           <div><dt>서현 근무기간</dt><dd>22개월 ✓</dd></div>
           <div><dt>예상 보험료 (월)</dt><dd>~10만원</dd></div>
           <div><dt>미신청 시 (지역가입)</dt><dd>15~25만/월</dd></div>
           <div><dt>신청 시한</dt><dd>첫 고지서 납부기한 내</dd></div>
-          <div><dt>신청 채널</dt><dd>☎ 1577-1000</dd></div>
-          <div><dt></dt><dd>The건강보험 앱</dd></div>
+          <div class="sum"><dt>신청 채널</dt><dd>☎ 1577-1000</dd></div>
+          <div class="sum"><dt>또는</dt><dd>The건강보험 앱</dd></div>
         </dl>
       </div>
-      <div class="card">
+      <div class="cell">
         <h3>기타 필수 액션</h3>
         <dl class="rows">
           <div><dt>국민연금 납부예외 신청</dt><dd>☎ 1355</dd></div>
@@ -411,217 +467,237 @@
           <div><dt>DAN 다이빙 보험</dt><dd>연 10~20만</dd></div>
           <div class="sum"><dt>총 부대비용</dt><dd>120만원</dd></div>
         </dl>
-        <p class="detail" style="margin:8px 0 0">건보 60 + 보험 50 + 비자 10</p>
+        <p class="cell-foot">(건보 60 + 보험 50 + 비자 10)</p>
       </div>
     </div>
   </section>
 
   <!-- balance -->
-  <section>
-    <div class="sec-head">
-      <span class="sec-num">＝</span>
-      <h2>수지 균형</h2>
+  <div class="equation">
+    <div>
+      <div class="eq-label">총 자금</div>
+      <div class="eq-value">1,581.6</div>
     </div>
-    <div class="equation">
-      <div class="term">
-        <div class="term__label">총 자금</div>
-        <div class="term__val">1,681.6</div>
-      </div>
-      <div class="op">−</div>
-      <div class="term">
-        <div class="term__label">총 지출</div>
-        <div class="term__val">1,685.0</div>
-      </div>
-      <div class="op">=</div>
-      <div class="term net">
-        <div class="term__label">수지</div>
-        <div class="term__val">−3.4</div>
-      </div>
+    <div class="eq-op">−</div>
+    <div>
+      <div class="eq-label">총 지출</div>
+      <div class="eq-value">1,685.0</div>
     </div>
+    <div class="eq-op">=</div>
+    <div class="eq-net">
+      <div class="eq-label">수지</div>
+      <div class="eq-value">−103.4</div>
+    </div>
+  </div>
 
-    <div class="notes">
-      <h3>참고사항</h3>
-      <ol>
-        <li>8월 급여 100만원만 편입, 나머지 세후 300만원은 실질 여유 버퍼(환율/응급/이직 브릿지).</li>
-        <li>9월·2월 국내 생활비는 예산에서 제외 → 서현이 직접 벌어서 충당 예정.</li>
-        <li>수지 −3.4만원은 실행 중 오차 흡수 수준. 정확 균형 원하면 8월 급여 편입을 103.4로 상향.</li>
-        <li>퇴직소득세는 근속 2년 · 첫 퇴직 기준 추정치이며, 실제 회사 정산과 최대 5만원 내외 차이 가능.</li>
-        <li>다합 생활비는 균형형(월 90) 확정. 절약형(월 60) 전환 시 +60만 추가 여유.</li>
-        <li>필수 액션: 퇴사 후 즉시 ① 건강보험 임의계속가입 (☎1577-1000) ② 국민연금 납부예외 (☎1355) 신청.</li>
-      </ol>
-    </div>
-  </section>
+  <div class="notes">
+    <span class="lead">참고사항.</span>
+    <span class="no">①</span> <b>8월 급여는 발생하지 않음</b> → 자금 편입분(100)과 여유 버퍼(300) 모두 없음.
+    <span class="no">②</span> <b>9월·2월 국내 생활비는 예산에서 제외</b> → 서현이 직접 벌어서 충당 예정.
+    <span class="no">③</span> <b>수지 −103.4만원은 실제 부족분</b> — 흡수할 버퍼가 없어 지출 삭감 또는 추가 수입으로 메워야 함.
+    <span class="no">④</span> 퇴직소득세는 근속 2년 · 첫 퇴직 기준 추정치이며, 실제 회사 정산과 최대 5만원 내외 차이 가능.
+    <span class="no">⑤</span> 다합 생활비 절약형(월 60) 전환 시 +60만 확보 → 그래도 <b>−43.4만</b> 남음.
+    <span class="no">⑥</span> <b>필수 액션</b>: 퇴사 후 즉시 ①건강보험 임의계속가입 (☎1577-1000) ②국민연금 납부예외 (☎1355) 신청.
+  </div>
 
   <!-- 04 -->
   <section>
-    <div class="sec-head">
-      <span class="sec-num">04</span>
-      <h2>실행 체크리스트</h2>
-    </div>
+    <div class="sec-kicker">04 · Action Items</div>
+    <h2>실행 체크리스트</h2>
 
     <div class="phase">
-      <div class="phase__head">
+      <div>
         <h3 class="phase__title">퇴사 전 마무리</h3>
-        <span class="phase__when">~ 2026-08-31</span>
+        <div class="phase__when">~ 2026-08-31</div>
       </div>
       <ul class="tasks">
-        <li>
-          <span class="pri p1">P1</span>
-          <div><div class="task__name">회사 자산 반납·인수인계 완료</div>
-               <div class="task__desc">노트북·사원증·업무 인계 문서</div></div>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">회사 자산 반납·인수인계 완료</div>
+            <div class="task__desc">노트북·사원증·업무 인계 문서</div>
+          </div>
           <span class="when">퇴직 프로세스</span>
         </li>
-        <li>
-          <span class="pri p1">P1</span>
-          <div><div class="task__name">퇴직금 정산 안내 확인</div>
-               <div class="task__desc">인사팀에 예상 세후 실수령 확인 (계산: 약 821.6만)</div></div>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">퇴직금 정산 안내 확인</div>
+            <div class="task__desc">인사팀에 예상 세후 실수령 확인 (계산: 약 821.6만)</div>
+          </div>
           <span class="when">HR</span>
-        </li>
-        <li>
-          <span class="pri">P2</span>
-          <div><div class="task__name">8월 급여 입금 확인</div>
-               <div class="task__desc">세후 약 400만 → 100만 자금 편입, 나머지 300만 여유 버퍼</div></div>
-          <span class="when">9월 초</span>
         </li>
       </ul>
     </div>
 
     <div class="phase">
-      <div class="phase__head">
+      <div>
         <h3 class="phase__title">퇴사 직후 1~2주</h3>
-        <span class="phase__when">2026-09-01 ~ 09-14</span>
+        <div class="phase__when">2026-09-01 ~ 09-14</div>
       </div>
       <ul class="tasks">
-        <li>
-          <span class="pri p0">P0</span>
-          <div><div class="task__name">건강보험 임의계속가입 신청</div>
-               <div class="task__desc">미신청 시 지역가입자로 자동 전환 → 월 15~25만원 추가 부담. 첫 지역가입 고지서 납부기한 내 신청 필수</div></div>
+        <li class="is-p0">
+          <span class="box"></span><span class="pri p0">P0</span>
+          <div>
+            <div class="task__name">건강보험 임의계속가입 신청</div>
+            <div class="task__desc">미신청 시 지역가입자로 자동 전환 → 월 15~25만원 추가 부담. 첫 지역가입 고지서 납부기한 내 신청 필수</div>
+          </div>
           <span class="when">☎ 1577-1000</span>
         </li>
-        <li>
-          <span class="pri p0">P0</span>
-          <div><div class="task__name">국민연금 납부예외 신청</div>
-               <div class="task__desc">실직 사유로 신고 → 소득 없는 기간 납부 정지 (재취업 시 자동 재개)</div></div>
+        <li class="is-p0">
+          <span class="box"></span><span class="pri p0">P0</span>
+          <div>
+            <div class="task__name">국민연금 납부예외 신청</div>
+            <div class="task__desc">실직 사유로 신고 → 소득 없는 기간 납부 정지 (재취업 시 자동 재개)</div>
+          </div>
           <span class="when">☎ 1355</span>
         </li>
-        <li>
-          <span class="pri p1">P1</span>
-          <div><div class="task__name">퇴직금 입금 확인</div>
-               <div class="task__desc">세후 약 821.6만원 · 예상보다 차이 크면 인사팀 재확인</div></div>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">퇴직금 입금 확인</div>
+            <div class="task__desc">세후 약 821.6만원 · 예상보다 차이 크면 인사팀 재확인</div>
+          </div>
           <span class="when">퇴사 후 14일 내</span>
         </li>
       </ul>
     </div>
 
     <div class="phase">
-      <div class="phase__head">
+      <div>
         <h3 class="phase__title">다합 출발 전</h3>
-        <span class="phase__when">~ 다합 항공권 출발일</span>
+        <div class="phase__when">~ 다합 항공권 출발일</div>
       </div>
       <ul class="tasks">
-        <li>
-          <span class="pri p0">P0</span>
-          <div><div class="task__name">여행자·다이빙 보험 가입</div>
-               <div class="task__desc">다합 2개월(다이빙 커버 필수) + 유럽 + 12월 이집트. DAN 다이빙 보험 별도 가입 권장</div></div>
+        <li class="is-p0">
+          <span class="box"></span><span class="pri p0">P0</span>
+          <div>
+            <div class="task__name">여행자·다이빙 보험 가입</div>
+            <div class="task__desc">다합 2개월(다이빙 커버 필수) + 유럽 + 12월 이집트. DAN 다이빙 보험 별도 가입 권장</div>
+          </div>
           <span class="when">50만원</span>
         </li>
-        <li>
-          <span class="pri p1">P1</span>
-          <div><div class="task__name">PADI Medical Statement 검진</div>
-               <div class="task__desc">다이빙 마스터 과정 필수 · 병원 5~10만 (교육비 185에 포함 확인)</div></div>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">PADI Medical Statement 검진</div>
+            <div class="task__desc">다이빙 마스터 과정 필수 · 병원 5~10만 (교육비 185에 포함 확인)</div>
+          </div>
           <span class="when">병원 방문</span>
         </li>
         <li>
-          <span class="pri">P2</span>
-          <div><div class="task__name">이집트 도착비자 준비</div>
-               <div class="task__desc">공항 도착 시 $25 현금 준비 (30일 관광비자)</div></div>
+          <span class="box"></span><span class="pri">P2</span>
+          <div>
+            <div class="task__name">이집트 도착비자 준비</div>
+            <div class="task__desc">공항 도착 시 $25 현금 준비 (30일 관광비자)</div>
+          </div>
           <span class="when">$25</span>
         </li>
         <li>
-          <span class="pri">P2</span>
-          <div><div class="task__name">다합 항공권·숙소 재확인</div>
-               <div class="task__desc">결제 완료된 다이빙 장비 · 다합 숙소 인수 정보 정리</div></div>
+          <span class="box"></span><span class="pri">P2</span>
+          <div>
+            <div class="task__name">다합 항공권·숙소 재확인</div>
+            <div class="task__desc">결제 완료된 다이빙 장비 · 다합 숙소 인수 정보 정리</div>
+          </div>
           <span class="when">기결제</span>
         </li>
       </ul>
     </div>
 
     <div class="phase">
-      <div class="phase__head">
+      <div>
         <h3 class="phase__title">다합 체류 중</h3>
-        <span class="phase__when">2개월 · 약 60일</span>
+        <div class="phase__when">2개월 · 약 60일</div>
       </div>
       <ul class="tasks">
-        <li>
-          <span class="pri p1">P1</span>
-          <div><div class="task__name">비자 30일 연장 (30일차 즈음)</div>
-               <div class="task__desc">다합 관광경찰서(Tourist Police) 방문 · 여권 + 숙소 증명</div></div>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">비자 30일 연장 (30일차 즈음)</div>
+            <div class="task__desc">다합 관광경찰서(Tourist Police) 방문 · 여권 + 숙소 증명</div>
+          </div>
           <span class="when">$15</span>
         </li>
-        <li>
-          <span class="pri p1">P1</span>
-          <div><div class="task__name">다합 생활비 실지출 트래킹</div>
-               <div class="task__desc">월 90만 이하 유지 · 초과 시 여유 버퍼(300)에서 조정</div></div>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">다합 생활비 실지출 트래킹</div>
+            <div class="task__desc">월 90만 이하 유지 · 여유 버퍼가 없으므로 초과 시 다른 항목에서 즉시 삭감</div>
+          </div>
           <span class="when">월 90</span>
         </li>
         <li>
-          <span class="pri">P2</span>
-          <div><div class="task__name">다이빙 마스터 자격증 취득</div>
-               <div class="task__desc">PADI 최종 등록 및 로그북 정리</div></div>
+          <span class="box"></span><span class="pri">P2</span>
+          <div>
+            <div class="task__name">다이빙 마스터 자격증 취득</div>
+            <div class="task__desc">PADI 최종 등록 및 로그북 정리</div>
+          </div>
           <span class="when">교육 완수</span>
         </li>
       </ul>
     </div>
 
     <div class="phase">
-      <div class="phase__head">
+      <div>
         <h3 class="phase__title">유럽 · 12월 이집트</h3>
-        <span class="phase__when">2026-12 ~ 2027-01</span>
+        <div class="phase__when">2026-12 ~ 2027-01</div>
       </div>
       <ul class="tasks">
-        <li>
-          <span class="pri p0">P0</span>
-          <div><div class="task__name">12월 이집트 귀국 항공권 예약</div>
-               <div class="task__desc">이집트 → 인천 편도 · 되도록 조기 예약</div></div>
+        <li class="is-p0">
+          <span class="box"></span><span class="pri p0">P0</span>
+          <div>
+            <div class="task__name">12월 이집트 귀국 항공권 예약</div>
+            <div class="task__desc">이집트 → 인천 편도 · 되도록 조기 예약</div>
+          </div>
           <span class="when">100만</span>
         </li>
-        <li>
-          <span class="pri p1">P1</span>
-          <div><div class="task__name">이집트 재입국 비자</div>
-               <div class="task__desc">도착 시 30일 관광비자</div></div>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">이집트 재입국 비자</div>
+            <div class="task__desc">도착 시 30일 관광비자</div>
+          </div>
           <span class="when">$25</span>
         </li>
         <li>
-          <span class="pri">P2</span>
-          <div><div class="task__name">유럽 여행 90만 예산 관리</div>
-               <div class="task__desc">항공 + 숙소 + 식비 + 교통 · 초과 시 여유 버퍼에서 조정</div></div>
+          <span class="box"></span><span class="pri">P2</span>
+          <div>
+            <div class="task__name">유럽 여행 90만 예산 관리</div>
+            <div class="task__desc">항공 + 숙소 + 식비 + 교통 · 여유 버퍼가 없으므로 초과 시 다른 항목에서 삭감</div>
+          </div>
           <span class="when">90만</span>
         </li>
       </ul>
     </div>
 
     <div class="phase">
-      <div class="phase__head">
+      <div>
         <h3 class="phase__title">귀국 후</h3>
-        <span class="phase__when">2027-02 ~</span>
+        <div class="phase__when">2027-02 ~</div>
       </div>
       <ul class="tasks">
-        <li>
-          <span class="pri p1">P1</span>
-          <div><div class="task__name">국내 생활비 소득 확보</div>
-               <div class="task__desc">9월·2월 국내 체류 생활비는 직접 수익 활동으로 충당 예정</div></div>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">국내 생활비 소득 확보</div>
+            <div class="task__desc">9월·2월 국내 체류 생활비는 직접 수익 활동으로 충당 예정</div>
+          </div>
           <span class="when">본인 수익</span>
         </li>
-        <li>
-          <span class="pri p1">P1</span>
-          <div><div class="task__name">재취업 / 이직 활동</div>
-               <div class="task__desc">다이빙 마스터·미용 자격증 활용 or 커리어 복귀</div></div>
+        <li class="is-p1">
+          <span class="box"></span><span class="pri p1">P1</span>
+          <div>
+            <div class="task__name">재취업 / 이직 활동</div>
+            <div class="task__desc">다이빙 마스터·미용 자격증 활용 or 커리어 복귀</div>
+          </div>
           <span class="when">이직 준비</span>
         </li>
         <li>
-          <span class="pri">P2</span>
-          <div><div class="task__name">건강보험·연금 재개</div>
-               <div class="task__desc">재취업 시 직장가입자 전환 자동, 미취업 지속 시 임의계속가입 유지</div></div>
+          <span class="box"></span><span class="pri">P2</span>
+          <div>
+            <div class="task__name">건강보험·연금 재개</div>
+            <div class="task__desc">재취업 시 직장가입자 전환 자동, 미취업 지속 시 임의계속가입 유지</div>
+          </div>
           <span class="when">고용 시점</span>
         </li>
       </ul>
